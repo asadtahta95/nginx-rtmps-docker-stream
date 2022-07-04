@@ -18,9 +18,6 @@ This was inspired by other similar previous images from [dvdgiessen](https://hub
 
 The main purpose (and test case) to build it was to allow streaming from [**OBS Studio**](https://obsproject.com/) to different clients at the same time.
 
-**GitHub repo**: <https://github.com/tiangolo/nginx-rtmp-docker>
-
-**Docker Hub image**: <https://hub.docker.com/r/tiangolo/nginx-rtmp/>
 
 ## Details
 
