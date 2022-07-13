@@ -73,9 +73,6 @@ ENV INSTAGRAM_KEY ""
 
 ENV DEBUG ""
 
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-
-RUN chmod +x /docker-entrypoint.sh
 
 EXPOSE 1935
 
