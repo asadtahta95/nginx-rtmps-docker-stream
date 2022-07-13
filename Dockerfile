@@ -55,14 +55,9 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # Config Stunnel
 RUN mkdir -p  /etc/stunnel/conf.d
 # Set up config file 
-COPY stunnel/stunnel.conf /etc/stunnel/stunnel.conf
-COPY stunnel/stunnel4 /etc/default/stunnel4
+COPY stunnel.conf /etc/stunnel/stunnel.conf
+COPY stunnel4 /etc/default/stunnel4
 
-#Facebook Stunnel Port 1936
-COPY stunnel/fb.conf /etc/stunnel/conf.d/fb.conf
-
-#Instagram Stunnel Port 1937
-COPY stunnel/instagram.conf /etc/stunnel/conf.d/instagram.conf
 
 #Youtube
 ENV YOUTUBE_URL rtmp://a.rtmp.youtube.com/live2/
