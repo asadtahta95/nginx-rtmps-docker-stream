@@ -52,5 +52,38 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
 # Set up config file
 COPY nginx.conf /etc/nginx/nginx.conf
 
+# Config Stunnel
+RUN mkdir -p  /etc/stunnel/conf.d
+# Set up config file 
+COPY stunnel/stunnel.conf /etc/stunnel/stunnel.conf
+COPY stunnel/stunnel4 /etc/default/stunnel4
+
+#Facebook Stunnel Port 1936
+COPY stunnel/fb.conf /etc/stunnel/conf.d/fb.conf
+
+#Instagram Stunnel Port 1937
+COPY stunnel/instagram.conf /etc/stunnel/conf.d/instagram.conf
+
+#Youtube
+ENV YOUTUBE_URL rtmp://a.rtmp.youtube.com/live2/
+ENV YOUTUBE_KEY ""
+
+#Facebook
+ENV FACEBOOK_URL rtmp://127.0.0.1:1936/rtmp/
+ENV FACEBOOK_KEY ""
+
+#Instagram
+ENV INSTAGRAM_URL rtmp://127.0.0.1:1937/rtmp/
+ENV INSTAGRAM_KEY ""
+
+ENV DEBUG ""
+
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+
+RUN chmod +x /docker-entrypoint.sh
+
 EXPOSE 1935
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
 CMD ["nginx", "-g", "daemon off;"]
