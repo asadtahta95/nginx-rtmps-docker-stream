@@ -79,6 +79,4 @@ RUN chmod +x /docker-entrypoint.sh
 
 EXPOSE 1935
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
-
 CMD ["nginx", "-g", "daemon off;"]
