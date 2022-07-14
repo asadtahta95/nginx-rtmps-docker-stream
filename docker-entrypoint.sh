@@ -27,7 +27,7 @@ if [ -n "${LOCAL_KEY}" ]; then
 	sed -i 's|#local|push '"$LOCAL_URL"'${LOCAL_KEY};|g' $NGINX_TEMPLATE
 	ENV_OK=1
 else 
-	sed -i 's|#instagram| |g' $NGINX_TEMPLATE
+	sed -i 's|#local| |g' $NGINX_TEMPLATE
 fi
 
 if [ $ENV_OK -eq 1 ]; then
